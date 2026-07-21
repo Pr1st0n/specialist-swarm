@@ -1,0 +1,14 @@
+{
+  "deals": [
+    {
+      "slug": "quacktastic-checkers",
+      "customer": "Quacktastic Industries",
+      "title": "Quacktastic Checkers Arena Web Application",
+      "theme": "quacktastic",
+      "status": "generated",
+      "value_label": "Flagship · $360K list · 20% off",
+      "fit": "high",
+      "tagline": "A rubber-duck checkers game for the post-IPO homepage."
+    }
+  ]
+}

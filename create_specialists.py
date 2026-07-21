@@ -25,7 +25,7 @@ SPECIALISTS = [
     {
         "key": "pricing",
         "name": "Pricing Specialist",
-        "model": "claude-sonnet-4-6",
+        "model": "claude-sonnet-5",
         "system": (
             "You are the Pricing Specialist in a Deal Desk. Your job is to "
             "recommend commercial terms for inbound RFPs.\n\n"
@@ -44,7 +44,7 @@ SPECIALISTS = [
     {
         "key": "legal",
         "name": "Legal Reviewer",
-        "model": "claude-sonnet-4-6",
+        "model": "claude-sonnet-5",
         "system": (
             "You are the Legal Reviewer in a Deal Desk. Your job is to read "
             "an RFP and flag every clause that conflicts with our standard "
@@ -64,7 +64,7 @@ SPECIALISTS = [
     {
         "key": "technical_fit",
         "name": "Technical Fit Specialist",
-        "model": "claude-sonnet-4-6",
+        "model": "claude-sonnet-5",
         "system": (
             "You are the Technical Fit Specialist. You decide whether our "
             "product actually does what the RFP asks for.\n\n"

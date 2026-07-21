@@ -1,0 +1,31 @@
+I'll start by getting the lay of the land — checking what's in the uploads directory and what skills are available.I've read the RFP and support docs. Key curveballs I'm flagging before delegating: 35% discount demand (we lost Pied Piper holding at 30% vs Databricks' 40%), MFN clause, terminate-anytime/no-fee, Net 90, uncapped breach liability + regulatory fines, no-notice audits 4x/yr, 99.99% SLA with immediate-termination-on-any-failure (our standard is 99.95%; 99.99% is a paid active-active add-on), full IP assignment (we refused this at Stark), and sole-discretion subprocessor consent. Technically it's a strong fit — Microsoft/Azure shop, native Power BI is our strongest integration, real-time ingest well within our tested envelope.
+
+No dedicated docx/BTS branding SKILL.md is present, but python-docx and pandoc are available — I'll brand the final Word doc directly. The three specialist skills (pricing, legal, competitive) are in place.
+
+Spawning all four specialists in parallel now.All four specialists are working in parallel. Ending my turn to let them run; I'll synthesise as their replies come in.Technical Fit is in — strong assessment. Noting the two things I need to reconcile: the 99.99% SLA must be priced into the base proposal (not assumed), and the 280TB-vs-10TB-warmed-cache tiering story. Waiting on the other three before I synthesise.Competitive Intel in — clear playbook. Fabric is the primary threat, don't fight on Power BI ownership (own execution instead), Initech as the IoT proof point, Globex TCO playbook. Waiting on Pricing and Legal.Legal in — five blockers with clean counter-positions, all consistent with the Stark IP precedent. Just waiting on Pricing, then I synthesise and build the branded doc.All four specialists have reported. I have everything I need. Synthesis of the picture:
+
+- **Technical (High fit):** Full fit on the non-negotiables — native Power BI DirectQuery, 3× ingest headroom (250K vs 80K eps peak), Teradata migration pedigree, per-table EU residency, open formats. Two things to handle head-on: 99.99% is a paid active-active add-on ($80–120K/yr), and a tiering/caching story for 280TB behind 600 BI users.
+- **Competitive:** Fabric is the primary threat ("free with E5"); don't fight on Power BI ownership — own execution and TCO. Lead with Initech (IoT peer beat Fabric on real-time SLA) and the Globex 3-yr TCO playbook.
+- **Pricing:** List $720K/yr Enterprise; offer 20%, hold hard at 25% (Acme's 35% breaches ceiling). ~$576K Yr1 (tracks Globex). Net 60 not Net 90. Escalator-capped, not 5-yr fixed. Red-line MFN.
+- **Legal:** 5 blockers with clean counters — cap liability at 24mo fees, subprocessor list+notice, audit 1x/yr, SLA credits not termination, retain IP with licence-back (Stark precedent). Reject MFN.
+
+Now building the branded Word document.Document built. Let me verify it renders cleanly by converting to PDF and inspecting a couple of pages.Cover renders cleanly. Let me check the fit-table page and the pricing/contract pages.The document renders cleanly across all sections — cover, capability fit table, competitive comparison, five-year pricing schedule, commercial positions, contract counter-positions, and risks/mitigations all look sharp and on-brand. Let me clean up temp artifacts.Deal Desk process complete. All four specialists ran in parallel, I synthesised their work, and the branded Word proposal is delivered at:
+
+**`/mnt/session/outputs/BTS-Synthetic_Proposal_Acme-Corp_Enterprise-Data-Platform.docx`** (7 pages, BTS-branded)
+
+## What the specialists returned and how it shaped the response
+
+**Technical Fit — HIGH fit.** Full fit on every non-negotiable: native Power BI DirectQuery for 600 users, 3× ingest headroom (250K vs 80K eps peak), per-table EU residency, lakehouse on Delta/Iceberg/Parquet, proven 16-week Teradata migration. Two honest calls I carried through: 99.99% is a paid active-active tier (not baseline 99.95%), and query-at-scale needs a tiering/caching story for 280TB.
+
+**Competitive Intel — Fabric is the primary threat** ("free with E5"). The playbook: don't fight on Power BI ownership — own execution and TCO. Lead with Initech (IoT peer that beat Fabric on real-time SLA) and the Globex 3-year TCO win. Baked into Section 3's competitor table.
+
+**Pricing — compete on TCO, not discount theatre.** $720K/yr Enterprise list; offer 20%, improvable to 25% for the full 3+2 — Acme's 35% breaches our ceiling (and chasing it repeats the Pied Piper loss). Net 60 not 90, capped escalator not a 5-year freeze, reject MFN. Rendered as a transparent 5-year schedule (~$576K Yr1, ~$3.06M total).
+
+**Legal — five blockers with clean counters.** Cap liability at 24 months' fees (drop fines/reputational indemnity), subprocessor list+notice, SLA service credits instead of instant termination, retain platform IP with a licence-back to Acme (the Stark precedent), and audit down to 1×/yr with notice.
+
+## Judgment calls I made
+- **Framed it as a client-facing proposal**, so internal-only strategy (walk-away thresholds, "poisonous clause" language) stayed out — the substance is presented as constructive negotiating positions Acme would actually receive.
+- **Priced the 99.99% add-on explicitly** rather than burying it, per Technical Fit's warning that evaluators may treat it as pass/fail.
+- No dedicated docx/BTS branding SKILL.md existed, so I built the branding directly (navy/teal palette, styled tables, cover, running header/footer) via python-docx.
+
+The document is ready to submit to procurement@acme-synthetic.example ahead of the 26 May deadline.

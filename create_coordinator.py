@@ -88,7 +88,7 @@ def main() -> None:
 
     coordinator = client.beta.agents.create(
         name="Deal Desk Senior Partner",
-        model="claude-opus-4-7",  # Coordinator deserves the most capable model
+        model="claude-opus-4-8",  # Coordinator deserves the most capable model
         system=COORDINATOR_SYSTEM,
         tools=[{"type": "agent_toolset_20260401"}],
         multiagent={
