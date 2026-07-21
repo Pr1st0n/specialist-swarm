@@ -1,0 +1,270 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Baloo 2', ui-rounded, system-ui, sans-serif;
+  --font-body: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, monospace;
+}
+
+/* ============================================================= *
+ *  SEMANTIC TOKENS — swap per surface/deal via a scoping class  *
+ *  Default = the "Altiora" studio console shell (cool graphite) *
+ * ============================================================= */
+:root {
+  --bg: #0e1218;
+  --bg-2: #141a22;
+  --surface: #1a222c;
+  --surface-2: #212c38;
+  --border: #2b3744;
+  --border-soft: #222c37;
+
+  --ink: #eaf1f7;
+  --ink-soft: #a6b7c6;
+  --ink-mute: #6d7f8e;
+
+  --brand: #57d3c9; /* studio signal cyan */
+  --brand-deep: #2bb7ac;
+  --brand-soft: rgba(87, 211, 201, 0.14);
+
+  --accent: #ffc94d;
+  --accent-deep: #e9ad1f;
+  --accent-soft: rgba(255, 201, 77, 0.14);
+
+  --pop: #ff8a5c;
+  --pop-deep: #ef6a37;
+
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-lg: 26px;
+
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -12px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 2px 4px rgba(0, 0, 0, 0.4), 0 30px 60px -24px rgba(0, 0, 0, 0.7);
+  --sheen: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* ============================================================= *
+ *  QUACKTASTIC — "Bath-Time Arcade" (glossy, toy-like, light)   *
+ * ============================================================= */
+.theme-quacktastic {
+  background: var(--bg);
+  color: var(--ink);
+  --bg: #e7f3fb;
+  --bg-2: #f2f9fd;
+  --surface: #ffffff;
+  --surface-2: #fff6dd;
+  --border: #ffe2a0;
+  --border-soft: #e9dcbc;
+
+  --ink: #1d3a4e;
+  --ink-soft: #4f6b7d;
+  --ink-mute: #8aa2b1;
+
+  --brand: #ffc21f; /* classic duck yellow */
+  --brand-deep: #f39c00;
+  --brand-soft: #fff2c6;
+
+  --accent: #2aa6e2; /* bath-time blue */
+  --accent-deep: #0d6ca4;
+  --accent-soft: #d3edfb;
+
+  --pop: #ff7a35; /* beak / crown orange */
+  --pop-deep: #e85c19;
+
+  --radius: 22px;
+  --radius-sm: 14px;
+  --radius-lg: 32px;
+
+  --shadow: 0 2px 3px rgba(19, 74, 110, 0.08), 0 16px 34px -16px rgba(19, 74, 110, 0.35);
+  --shadow-lg: 0 3px 6px rgba(19, 74, 110, 0.1), 0 40px 70px -28px rgba(19, 74, 110, 0.5);
+  --sheen: inset 0 2px 0 rgba(255, 255, 255, 0.9);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 500ms ease, color 500ms ease;
+}
+
+::selection {
+  background: var(--brand);
+  color: #10202c;
+}
+
+/* Themed scrollbars for the console feel */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+@layer components {
+  .dd-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow), var(--sheen);
+  }
+
+  .dd-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.28em 0.72em;
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+    color: var(--ink-soft);
+    background: color-mix(in srgb, var(--surface) 60%, transparent);
+  }
+
+  .dd-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    font-family: var(--font-display);
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 0.7em 1.4em;
+    cursor: pointer;
+    border: none;
+    transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+  }
+  .dd-btn:active {
+    transform: translateY(1px) scale(0.99);
+  }
+
+  .dd-btn-primary {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--brand) 92%, white) 0%, var(--brand) 55%, var(--brand-deep) 100%);
+    color: #10202c;
+    box-shadow: 0 8px 20px -8px color-mix(in srgb, var(--brand) 80%, transparent), var(--sheen);
+  }
+  .dd-btn-primary:hover {
+    filter: brightness(1.04);
+    box-shadow: 0 12px 26px -8px color-mix(in srgb, var(--brand) 85%, transparent), var(--sheen);
+  }
+
+  .dd-btn-ghost {
+    background: color-mix(in srgb, var(--surface) 70%, transparent);
+    color: var(--ink);
+    border: 1px solid var(--border);
+  }
+
+  .dd-h {
+    font-family: var(--font-display);
+    color: var(--ink);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+  }
+
+  .dd-prose :where(p) {
+    margin: 0 0 0.85em;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .dd-prose :where(strong) {
+    color: var(--ink);
+    font-weight: 800;
+  }
+  .dd-prose :where(h3) {
+    font-family: var(--font-display);
+    color: var(--ink);
+    font-size: 1.02rem;
+    font-weight: 700;
+    margin: 1.1em 0 0.4em;
+  }
+  .dd-prose :where(ul, ol) {
+    margin: 0 0 0.9em;
+    padding-left: 1.15em;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .dd-prose :where(li) {
+    margin: 0.25em 0;
+  }
+  .dd-prose :where(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.4em 0 1em;
+    font-size: 0.92rem;
+  }
+  .dd-prose :where(th, td) {
+    text-align: left;
+    padding: 0.55em 0.7em;
+    border-bottom: 1px solid var(--border);
+  }
+  .dd-prose :where(th) {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-mute);
+  }
+  .dd-prose :where(td) {
+    color: var(--ink-soft);
+  }
+}
+
+/* ---------- Motion ---------- */
+@keyframes bubble-rise {
+  0% { transform: translateY(20px) scale(0.8); opacity: 0; }
+  15% { opacity: 0.55; }
+  100% { transform: translateY(-115vh) scale(1.25); opacity: 0; }
+}
+@keyframes fidget {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(-7deg); }
+  60% { transform: rotate(7deg); }
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+@keyframes ripple {
+  0% { transform: scale(0.5); opacity: 0.55; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+@keyframes bow {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  30% { transform: translateY(3px) rotate(-3deg); }
+  60% { transform: translateY(3px) rotate(3deg); }
+}
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes dash {
+  from { stroke-dashoffset: var(--dash, 200); }
+  to { stroke-dashoffset: 0; }
+}
+
+.anim-fidget { animation: fidget 0.5s ease-in-out infinite; }
+.anim-bob { animation: bob 2.4s ease-in-out infinite; }
+.anim-bow { animation: bow 0.9s ease-in-out infinite; }
+.anim-floaty { animation: floaty 5s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "slug": "quacktastic-checkers",
+  "theme": "quacktastic",
+  "customer": {
+    "name": "Quacktastic Industries",
+    "unit": "Marketing Technology Office",
+    "contact": "Priyanka Osei, Marketing Technology Manager",
+    "tech_lead": "Nate Callahan, Front-End Engineering Lead",
+    "blurb": "The world's largest manufacturer of rubber ducks, novelty bath toys, and duck-adjacent merchandise. Fresh off its IPO roadshow and planning a brand relaunch."
+  },
+  "rfp": {
+    "title": "Quacktastic Checkers Arena Web Application",
+    "summary": "A flagship browser game for the QuacktasticIndustries.com homepage: standard checkers, reskinned entirely with rubber ducks. Single-player vs. AI (Easy / Medium / \"Ruthless Duck\") and real-time two-player multiplayer via shareable link, embeddable in an iframe, ready for a post-IPO relaunch livestream with up to 40,000 concurrent visitors.",
+    "issued": "2026-02-04",
+    "due": "2026-02-18",
+    "award_expected": "2026-03-10",
+    "requirements": [
+      { "id": "F1", "category": "Functional", "text": "8x8 checkers board; 12 rubber-duck pieces per side (Classic Yellow vs. a challenger colorway, e.g. Bath-Time Blue).", "status": "met", "note": "Art rigged onto Quacktastic-supplied assets." },
+      { "id": "F2", "category": "Functional", "text": "Standard movement + capture rules, including mandatory jumps and multi-jump chains.", "status": "met", "note": "Reusable turn-based rules engine (Marlowe reference)." },
+      { "id": "F3", "category": "Functional", "text": "King promotion on reaching the back row — a small rendered rubber crown on the duck.", "status": "met", "note": "Art rigging + promotion animation." },
+      { "id": "F4", "category": "Functional", "text": "Legal-move validation enforced server-side (no illegal duck moves, no matter how much the player insists their duck can fly).", "status": "met", "note": "Direct match — \"the client never adjudicates legality\" is our default." },
+      { "id": "F5", "category": "Functional", "text": "Single-player vs. computer, three difficulties: Easy, Medium, and \"Ruthless Duck\".", "status": "met", "note": "We routinely ship 3-tier minimax/alpha-beta AI." },
+      { "id": "F6", "category": "Functional", "text": "Real-time two-player multiplayer via a shareable game link.", "status": "met", "note": "Shareable-link matchmaking built in, no account." },
+      { "id": "F7", "category": "Functional", "text": "Visible turn indicator + 30-second move timer; low-time ducks visibly fidget.", "status": "met", "note": "Per-turn countdown + low-time states are standard." },
+      { "id": "F8", "category": "Functional", "text": "Sound effects: a quack on every legal move, a louder triumphant quack on every capture.", "status": "met", "note": "Per-event SFX with mute + autoplay handling." },
+      { "id": "F9", "category": "Functional", "text": "Win/lose/draw detection, with a short \"winning ducks take a bow\" animation.", "status": "met", "note": "End-state detection + bow animation." },
+      { "id": "F10", "category": "Functional", "text": "Move history panel showing at minimum the last 10 moves.", "status": "met", "note": "Trivial derivative of server-authoritative state log — minor scope add, no technical risk." },
+      { "id": "F11", "category": "Functional", "text": "Mobile-responsive layout supporting drag-and-drop AND tap-to-select-then-tap-to-move.", "status": "met", "note": "Both input modes, one codebase." },
+      { "id": "F12", "category": "Functional", "text": "Accessibility: full keyboard navigation of the board, and a colorblind-safe alternate duck skin pairing (a real fallback, not a suggestion).", "status": "met", "note": "First-class in our capability map — WCAG 2.2 AA, keyboard nav + tested CVD-safe skin." },
+      { "id": "S1", "category": "Scale", "text": "Target 5,000 concurrent games at launch.", "status": "met", "note": "Routine tier." },
+      { "id": "S2", "category": "Scale", "text": "Peak ~40,000 concurrent visitors during the IPO relaunch livestream.", "status": "met", "note": "Within our tested 50K/region envelope — but REQUIRES pre-warmed capacity scheduled against a confirmed livestream date (see risk)." },
+      { "id": "S3", "category": "Scale", "text": "Game state resilient to a dropped connection — refresh mid-game rejoins the same game in the same state.", "status": "met", "note": "Per-match state store keyed by match ID — direct match." },
+      { "id": "C1", "category": "Capability", "text": "Runs in all evergreen browsers (Chrome, Firefox, Safari, Edge); no plugin/download.", "status": "met", "note": "Web-standard SPA." },
+      { "id": "C2", "category": "Capability", "text": "Real-time multiplayer moves sync in under 500ms round-trip on typical broadband.", "status": "met", "note": "Covered with margin — p95 < 400ms, median 120–180ms." },
+      { "id": "C3", "category": "Capability", "text": "Embeds cleanly in an iframe on QuacktasticIndustries.com without breaking the site header/footer.", "status": "met", "note": "Sandboxed iframe embed model — direct match." },
+      { "id": "C4", "category": "Capability", "text": "Basic analytics: games started, completed, average length, and which difficulty is abandoned most.", "status": "met", "note": "Funnel/abandonment by difficulty is out-of-box." }
+    ],
+    "evaluation": [
+      { "criterion": "Functional fit (feature completeness vs. Section 2.1)", "weight": 0.35, "self_assessment": "HIGH", "note": "Technical Fit found no outright gaps across §2.1–2.3." },
+      { "criterion": "Real-time multiplayer quality and latency", "weight": 0.20, "self_assessment": "strong", "note": "p95 < 400ms vs. the 500ms bar; reconnection to same match/state." },
+      { "criterion": "Commercial terms (pricing + flexibility)", "weight": 0.15, "self_assessment": "competitive", "note": "20% off (standard max at >$300K) for the full 1+1 term; Net 60 accepted." },
+      { "criterion": "Implementation timeline and risk", "weight": 0.20, "self_assessment": "strong", "note": "Backward-planned from L-day with a 12-week hardening/pre-warm track." },
+      { "criterion": "Vendor stability + relevant references", "weight": 0.10, "self_assessment": "strong", "note": "Fizzwick (livestream), Marlowe (beat an indie on reliability), Verdant (accessibility)." }
+    ],
+    "competitors": [
+      "Waterfowl Analytics Inc. (data-analytics firm bidding out of its lane)",
+      "A boutique indie game studio (recommended by the CMO's nephew)",
+      "Databricks (declined to bid — \"not really our area\")"
+    ]
+  },
+  "fanout": [
+    { "agent": "Competitive Intel Analyst", "role": "competitive", "model": "claude-haiku-4-5-20251001", "spawned_ms": 1500, "replied_ms": 22000 },
+    { "agent": "Legal Reviewer", "role": "legal", "model": "claude-sonnet-5", "spawned_ms": 1100, "replied_ms": 30000 },
+    { "agent": "Technical Fit Specialist", "role": "technical", "model": "claude-sonnet-5", "spawned_ms": 1300, "replied_ms": 34000 },
+    { "agent": "Pricing Specialist", "role": "pricing", "model": "claude-sonnet-5", "spawned_ms": 900, "replied_ms": 47000 }
+  ],
+  "specialists": {
+    "technical": {
+      "name": "Technical Fit Specialist",
+      "model": "claude-sonnet-5",
+      "skill": "studio-capabilities",
+      "fit_score": "high",
+      "headline": "HIGH fit — no outright gaps across the RFP's functional, scale, and capability requirements.",
+      "bullets": [
+        "Server-authoritative rules engine (mandatory-jump + multi-jump enforcement); the client never adjudicates legality.",
+        "3-tier minimax/alpha-beta AI and shareable-link multiplayer with reconnect-to-same-match are direct matches.",
+        "Latency covered with margin: median 120–180ms, p95 < 400ms vs. the 500ms bar.",
+        "40K livestream peak is within our tested 50K/region envelope — with pre-warmed capacity.",
+        "CVD-safe alternate skin + full keyboard nav are first-class in our capability map, not afterthoughts."
+      ],
+      "risk": "The 40,000-peak / 100%-uptime livestream window is achievable ONLY with pre-warmed capacity scheduled in advance — and the livestream date is \"TBD at kickoff\" while award is fixed at 2026-03-10. Make locking the date (≥12-week lead) a contractual dependency, not a scheduling footnote.",
+      "body_md": "**Overall fit: HIGH.** This is squarely an Interactive Experiences engagement, and there are no outright gaps across Sections 2.1–2.3.\n\n### Requirement-by-requirement\n\n**Functional (§2.1):** 8x8 board + duck rigging, standard movement/capture with mandatory jumps and multi-jump chains, king promotion + crown, **server-side legal-move validation** (direct match), 3-tier AI incl. \"Ruthless Duck\", shareable-link real-time multiplayer, 30s timer with low-time animation, per-event quack SFX, win/lose/draw + bow, move history, drag-and-drop AND tap-to-select, full keyboard nav, and a **real CVD-safe alternate skin** — all covered.\n\n**Scale (§2.2):** 5,000 concurrent is routine; 40,000 peak is within our tested 50K/region envelope but requires pre-warmed capacity; reconnect-to-same-state is a direct match.\n\n**Capabilities (§2.3):** evergreen browsers, sub-500ms sync (with margin), clean sandboxed-iframe embed, and abandonment-by-difficulty analytics — all covered.\n\n### Proposed architecture\n- **Client:** React/TS SPA in a sandboxed iframe — renders the board and sends move *intents* only.\n- **Server:** authoritative game server owns board state + the rules engine (legality + mandatory-jump/multi-jump); a synchronous AI service (minimax/alpha-beta, three difficulty configs) plays the computer's turn.\n- **Realtime:** managed WebSocket tier relays intents/state deltas to both clients.\n- **Persistence:** per-match state store keyed by the shareable-link match ID → refresh rejoins via match ID, no data loss.\n- **Move flow:** intent → server validates → mutates authoritative state → broadcasts → client SFX/animation → analytics event.\n- **Scale:** horizontal autoscaling with a pre-warm pool sized to 40K ahead of the announced window.\n\n### Honest notes\n- Duck art is a client dependency — needs an asset-delivery milestone in the SOW.\n- This is casual turn-based (30s/move), well inside our realtime tier — explicitly **not** the sub-50ms twitch/rollback netcode we're weak on.\n- Move-history isn't a named line item in our map but is a trivial derivative of server-authoritative state."
+    },
+    "pricing": {
+      "name": "Pricing Specialist",
+      "model": "claude-sonnet-5",
+      "skill": "pricing-playbook + interactive-rate-card",
+      "headline": "Flagship ($360K list run fee) at 20% off, tied to the full 1+1 term; $252K one-time build; 2-year total $828K.",
+      "bullets": [
+        "Package: FLAGSHIP — $360K annual list. The 100%-uptime livestream war-room is the trigger, not Campaign Pro.",
+        "Discount: 20% off (standard max for >$300K) — grant it, conditioned on the full 1+1 term + a public reference. A firm 2-year unlocks 23%.",
+        "Build fee: $252K one-time (0.70×), creditable toward Year 1 on a signed 1+1.",
+        "Payment: Net 60 accepted (matches the Fizzwick precedent) — do not extend further.",
+        "MFN not requested — confirm it stays out."
+      ],
+      "risk": "The 4-hour / 40K war-room is the real cost driver — the build fee must fully absorb rehearsal cost, not the run fee. The indie studio may undercut on price; hold discount discipline and win on reliability.",
+      "body_md": "**Win on delight + dependability, priced at the top of the standard band — not a discount war.**\n\n**1) Package: FLAGSHIP — $360K annual list (run fee).** Their exact ask — 100% uptime for a pre-announced 4-hour IPO relaunch livestream at 40K concurrent — is the specific trigger for Flagship, not Pro. Pro covers 40K load-testing and 24/7 launch support but lacks the dedicated war-room / 100%-uptime rehearsal this scenario demands. Fallback if they balk: Pro ($220K) + war-room add-on, but lead with Flagship.\n\n**2) Discount: 20% off list** — standard max for >$300K deals, so no strategic sign-off needed. Grant it, tied to the full 1yr+1yr term (protects the war-room investment) and push for a public post-IPO reference. If they won't give a reference, still hold at 20% (it's standard) — open at 15%. A **firm** 2-year commit adds 3% → 23%.\n\n**3) Build fee: $252K one-time (0.70× the annual run)** — mid-high multiple justified by the war-room + custom art rigging, offset by Marlowe's reusable rules engine. Creditable toward Year 1 on a signed 1+1.\n\n**4) 2-Year transparent pricing — recommended (20% off, reference secured):**\n\n| | Year 1 | Year 2 |\n| --- | --- | --- |\n| List run fee | $360,000 | $360,000 |\n| Discount | 20% | 20% |\n| Discounted run | $288,000 | $288,000 |\n| One-time build | $252,000 | — |\n| **Total** | **$540,000** | **$288,000** |\n\n**2-year total: $828,000.** Downside (no reference, 15%): $864,000. Best-case (firm 2-year, 23%): $806,400.\n\n**5) Concessions:** Net 60 accepted; 30-day termination-for-convenience with no penalty accepted (pro-rated refund of prepaid unused fees); MFN stays out; uncapped player-data liability routed to Legal for a bounded super-cap."
+    },
+    "legal": {
+      "name": "Legal Reviewer",
+      "model": "claude-sonnet-5",
+      "skill": "legal-checklist",
+      "headline": "Three blockers as drafted — all with clean, checklist-consistent counters; the rest negotiable-to-acceptable.",
+      "bullets": [
+        "Liability (BLOCKER): uncapped for player-data → 12-month general cap + a bounded 24-month super-cap for signup-email breaches.",
+        "IP (BLOCKER as drafted): \"all work product\" sweeps our reusable engine → assign the bespoke deliverable, retain + license our platform.",
+        "Subprocessors (BLOCKER): per-item pre-consent → named-at-signature (deemed accepted) + 30-day notice with a right to object.",
+        "SLA: 99.9% + the 4-hour 100% window as a best-efforts target; service credits capped at 30% as sole remedy.",
+        "Termination/audit acceptable; DPA required (signup email = PII); MFN stays out."
+      ],
+      "risk": "The uncapped player-data carve-out is a hard BLOCKER — it voids our cyber cover regardless of how narrow the data category is. It must move to a bounded super-cap before signature.",
+      "body_md": "**Three blockers as drafted, all with clean counters. Everything else is negotiable-to-acceptable.**\n\n### Item 1 — Liability cap · BLOCKER\nRFP: 12-month cap *except uncapped for player-data breaches*. Uncapped exposure voids our cyber policy. **Counter:** 12 months' fees generally; a bounded **24-month super-cap** for signup-email breaches; mutual carve-outs for gross negligence + IP infringement. Confirm scope stays limited to signup emails.\n\n### Item 2 — IP · BLOCKER (as drafted)\nRFP: *all* work product vests in Quacktastic. That sweeps our reusable server-authoritative rules engine + realtime tier. **Counter:** Quacktastic owns the bespoke Quacktastic Checkers Arena deliverable and its supplied art; vendor retains pre-existing IP (engine, platform, tooling) and grants a perpetual license to use it as embedded.\n\n### Item 3 — Audit · ACCEPTABLE\nSingle annual review matches our standard. Add 30 days' notice, mutual confidentiality, and clarify the audit runs against vendor controls (not subprocessors directly).\n\n### Item 4 — Termination · NEGOTIABLE / ACCEPTABLE\n30-day convenience termination, no penalty. Convenience-termination and no-penalty are fine; push notice toward 60 days if easy, accept 30. Add pro-rated refund of prepaid, unused fees.\n\n### Item 5 — Subprocessors · BLOCKER\nPer-item prior written consent is too operationally heavy. **Counter:** named hosting/realtime subprocessors disclosed and deemed accepted at signature; 30 days' notice before changes with a right to object → substitute or terminate the affected scope.\n\n### Item 6 — Service levels · ACCEPTABLE\n99.9% monthly is within standard; the 4-hour 100% window is workable as a commercially-reasonable target with pre-warm/war-room. **Sole remedy = service credits capped at 30%.** Reject any terminate-on-first-miss.\n\n**Also:** DPA required (signup emails = PII), 72h breach notice (24h available); MFN confirmed out."
+    },
+    "competitive": {
+      "name": "Competitive Intel Analyst",
+      "model": "claude-haiku-4-5-20251001",
+      "skill": "competitive-intel",
+      "headline": "The real threat is the indie studio (art + a relationship); Waterfowl is out of its lane; Databricks declined.",
+      "bullets": [
+        "Waterfowl Analytics: a data firm bidding out of core competency — weak on real-time game shipping, latency at 40K, and accessibility.",
+        "Indie studio (CMO's nephew): strong on art/feel, but unproven at 40K scale, on 100% livestream uptime, accessibility, and enterprise contracting.",
+        "Databricks declined — \"even Databricks recognized this needs a specialist.\"",
+        "Opening move: Fizzwick (livestream 100% uptime) → Marlowe (beat an indie on reliability) → Verdant (accessibility)."
+      ],
+      "risk": "Don't dismiss the nephew's studio — the relationship is real. Acknowledge their craft, position us as the engineering-reliability partner (they rig art, we keep it live at 40K), and note fixed-scope milestones insulate against relationship-driven scope creep.",
+      "body_md": "### Waterfowl Analytics Inc. — real, but out of its lane\n*Why bidding:* existing data-platform relationship, cross-sell. *Weakness:* a data-analytics firm with no proven real-time multiplayer game shipping — likely to bolt on a third-party game engine (latency + subprocessor-consent friction), and to treat CVD-safe as checkbox compliance. **Our angle:** proven livestream reliability at scale (Fizzwick: 100% uptime through a Super Bowl spike, 32K concurrent) and a server-authoritative rules engine we own end-to-end (Marlowe). **Trap to avoid:** don't dismiss their data credibility — turn it against them: \"great data infrastructure doesn't guarantee shipping a live game.\"\n\n### Indie game studio — the real threat\n*Why bidding:* the CMO's-nephew relationship + a strong creative portfolio. *Weakness:* enterprise reliability (no SOC 2 / ISO heritage), 40K concurrency, 100% livestream uptime (no game-day runbook), accessibility rigor, and contractual maturity (IP, subprocessors, liability). **Our angle:** \"beat an indie on reliability\" (Marlowe) — they nail art, we own the engine that keeps it live at 40K; plus enterprise trust + audit-ready accessibility (Verdant). **Trap to avoid:** don't compete on art originality (Quacktastic supplies the art). Acknowledge the relationship, but note fixed-scope, milestone-based delivery insulates them from scope creep.\n\n### Databricks — declined\n\"Not our area.\" Use it: even Databricks saw this needs a specialist.\n\n**Positioning summary:** most likely real threat = the indie studio; Waterfowl loses on reliability and latency. **Best opening move:** \"We've shipped the exact scenario you're facing. Twice.\" — Fizzwick + Marlowe, closed with Verdant's accessibility."
+    }
+  },
+  "proposal": {
+    "title": "Proposal: Quacktastic Checkers Arena",
+    "subtitle": "BTS-Synthetic Interactive Experiences Studio · in response to RFP dated 2026-02-04",
+    "sections": [
+      { "id": "exec", "title": "Executive Summary", "body_md": "Quacktastic wants a flagship rubber-duck checkers game on the homepage — genuinely fun, and able to survive a 40,000-visitor IPO relaunch livestream. That's our discipline: real-time, high-concurrency, accessible browser games built on a server-authoritative rules engine.\n\n- **Full functional fit** — Technical Fit found no outright gaps across the RFP's functional, scale, and capability requirements.\n- **Livestream-grade reliability** — p95 < 400ms sync, reconnect-to-same-state, and a rehearsed war-room playbook (Fizzwick held 100% uptime through a Super Bowl spike).\n- **Delivered to the date** — a plan working backward from the livestream, with a 12-week hardening/pre-warm track.\n\nCommercially: **Flagship at 20% off for the full 1+1 term**, Net 60, transparent for two years." },
+      { "id": "need", "title": "Our Understanding of Your Need", "body_md": "This is a **brand moment**, not core infrastructure. It has to be delightful (it's going on the homepage), it has to be *correct* (no duck moves illegally, no matter how much the player insists their duck can fly), and it has to be **bulletproof for one pre-announced 4-hour window**. Marketing owns the budget and the annual cycle, so a 1-year + 1-year term fits.\n\nWe also read the subtext: the default yellow/blue pairing is not colorblind-safe, and you've asked for a *real* fallback. We treat that as a first-class requirement, not a toggle." },
+      { "id": "fit", "title": "Why BTS-Synthetic Interactive Experiences", "body_md": "We're a specialist interactive studio — nine years shipping real-time, high-concurrency browser experiences and games. That's a different discipline from a data-analytics firm bidding out of its lane, and a different maturity from a boutique studio when 40,000 people arrive at once.\n\n**Proof, not promises:**\n- **Fizzwick Beverages** — a real-time multiplayer promo game that held **100% uptime through a Super Bowl ad livestream** on pre-warmed capacity (~32K peak).\n- **Marlowe Board & Bar** — a browser chess/backgammon suite with a server-authoritative rules engine and 3-tier AI — and we **beat an indie studio on reliability**.\n- **Verdant Parks Authority** — an accessible interactive board, WCAG 2.2 AA, keyboard-navigable, colorblind-safe as first-class.\n\nEven Databricks declined this one as \"not our area.\" It needs a specialist — that's us." },
+      { "id": "arch", "title": "Proposed Real-Time Architecture", "body_md": "**Authoritative game server.** All match state lives server-side. The React/TS client renders the board and sends move *intents*; the server validates each against the rules engine (mandatory jumps, multi-jump chains, promotion) and broadcasts the applied move. No client can move a duck illegally.\n\n**Real-time transport.** WebSocket sync via our managed realtime tier — median 120–180ms, p95 under 400ms, inside your 500ms bar.\n\n**Resilience.** Per-match state is persisted, keyed by the shareable-link match ID; a dropped or refreshed player rejoins the same game in the same state. No account required.\n\n**AI.** A synchronous minimax/alpha-beta service plays the computer's turn across three difficulty configs (Easy / Medium / Ruthless Duck).\n\n**Scale & the livestream.** Horizontal autoscaling with a pre-warm pool sized to 40,000 ahead of the announced window, matching our tested 50K/region envelope.\n\n**Embed.** Ships as a sandboxed, style-isolated iframe widget that won't collide with your site header/footer." },
+      { "id": "commercial", "title": "Commercial Proposal (2-Year Transparency)", "body_md": "**Package: Flagship** — real-time multiplayer, reconnection, 3-tier AI, full accessibility pass, load-tested to 40K, plus a dedicated launch **war-room** and a 100%-uptime rehearsal for the pre-announced livestream window. The 100%-uptime commitment is what puts this at Flagship rather than Campaign Pro.\n\n| | Year 1 | Year 2 |\n| --- | --- | --- |\n| List run fee | $360,000 | $360,000 |\n| Discount | 20% | 20% |\n| Discounted run | $288,000 | $288,000 |\n| One-time build | $252,000 | — |\n| **Total** | **$540,000** | **$288,000** |\n\n**2-year total: $828,000.** Downside (no public reference, opened at 15%): $864,000. Best-case (firm 2-year commit, 23%): $806,400.\n\n**Payment:** annual upfront on the run fee, **Net 60**. **Term:** 1 year + 1-year renewal. **Discount** held at 20% for the full term plus a public post-IPO reference; the one-time build is creditable toward Year 1 on a signed 1+1." },
+      { "id": "contract", "title": "Contract Approach", "body_md": "We can work with your paper, with three redlines and a few clarifications:\n\n1. **Liability (blocker)** — cap general liability at 12 months' fees; for player signup-email breaches, a bounded **24-month super-cap** rather than truly uncapped (keeps our cyber cover valid).\n2. **IP (blocker as drafted)** — you own the bespoke Quacktastic Checkers Arena deliverable and your supplied art; we retain our reusable rules engine + realtime platform and grant you a **perpetual license** to use them as embedded.\n3. **Subprocessors (blocker)** — a named list disclosed and **deemed accepted at signature**, with 30 days' notice + a right to object before any change.\n4. **Service levels** — 99.9% monthly and the 4-hour 100% window as a best-efforts target, with **service credits capped at 30% as the sole remedy** (no terminate-on-first-miss).\n5. **Termination** — at-will on 30 days is fine (push 60 if easy); pro-rated refund of prepaid, unused fees.\n\nSingle annual review, Net 60, and no-MFN are accepted. A **DPA** is required (signup email is PII)." },
+      { "id": "plan", "title": "Implementation Plan (Backward from the Livestream)", "body_md": "Working backward from your pre-announced livestream date (**L-day**):\n\n- **Weeks 1–2 — Foundations.** Rig your duck art onto the board; stand up the rules engine + server-side validation; local single-player playable.\n- **Weeks 3–5 — Multiplayer & AI.** Shareable-link real-time multiplayer, reconnection, and the three difficulty tiers.\n- **Weeks 6–7 — Polish & accessibility.** Timers + fidget, sound, win/bow animation, move history, keyboard nav, colorblind-safe skin, iframe embed, analytics.\n- **Week 8 — Load test.** Prove 40K concurrent on pre-warmed capacity.\n- **Weeks 9–10 — Hardening & rehearsal.** Full livestream dress rehearsal, war-room runbook, go-live.\n\n**Contractual dependency:** lock the livestream date with **≥12 weeks' lead** at kickoff. It is the one thing that makes the 40K / 100%-uptime commitment safe — the award date (2026-03-10) is fixed, but the livestream date is currently TBD." },
+      { "id": "refs", "title": "References", "body_md": "Two interactive/game references (data-platform references intentionally omitted, per RFP §7):\n\n1. **Fizzwick Beverages** — real-time multiplayer promo game, 100% uptime through a Super Bowl ad livestream (~32K peak concurrent, sub-200ms sync).\n2. **Marlowe Board & Bar** — browser chess + backgammon suite; server-authoritative rules engine + shareable-link multiplayer + 3-tier AI; beat an indie studio on reliability.\n\nAccessibility proof point (on request): **Verdant Parks Authority** — WCAG 2.2 AA interactive board, keyboard-navigable, tested colorblind-safe palettes." },
+      { "id": "risks", "title": "Risks & Mitigations", "body_md": "- **The livestream date is TBD (highest risk).** The 40K / 100%-uptime commitment depends on pre-warm scheduled against a confirmed date. Mitigation: make locking L-day (≥12-week lead) a contractual dependency at kickoff.\n- **Player-data liability exposure.** Mitigation: bounded 24-month super-cap keeps exposure insurable.\n- **Indie competitor undercut on price.** Mitigation: hold discount discipline; win on reliability, accessibility, and contracting maturity.\n- **Client art dependency.** Mitigation: an asset-delivery milestone in the SOW gates the rigging work.\n- **Accessibility slipping to \"a suggestion.\"** Mitigation: colorblind-safe skin + keyboard nav tracked as acceptance criteria." }
+    ]
+  },
+  "docx_filename": "BTS-Synthetic_Quacktastic-Checkers-Arena_Proposal.docx",
+  "meta": {
+    "model": "coordinator claude-opus-4-8 · specialists claude-sonnet-5 / claude-haiku-4-5",
+    "generated_at": "2026-07-21",
+    "status": "generated",
+    "note": "Real output from the Managed Agents swarm (session sesn_015mSwTnYVmZQFJUfZ2HyPHM). Coordinator synthesis + per-specialist threads captured; branded .docx built in-sandbox via python-docx."
+  }
+}

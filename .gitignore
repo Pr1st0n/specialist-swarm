@@ -1,0 +1,37 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+
+# Managed Agents workspace state (regenerable; specific to one workspace)
+.coordinator_id
+.environment_id
+.last_session_id
+.specialist_ids.json
+.skill_ids.json
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Node / web build
+web/node_modules/
+web/dist/
+node_modules/
+dist/
+
+# Browser automation / QA scratch
+.playwright-mcp/
+**/.playwright-mcp/
+/dealist.png
+/deal-*.png
+
+# Swarm raw capture: bulky + regenerable. We keep the .docx, coordinator.md,
+# run logs, and threads-text/ (readable); drop the raw event/thread dumps.
+outputs/**/raw-events.json
+outputs/**/threads/
+
+# OS
+.DS_Store
+**/.DS_Store

@@ -1,0 +1,44 @@
+{
+  "_comment": "Prior interactive-web / browser-game builds for the Interactive Experiences Studio. Use these as reference proof points and comparable deals when the RFP is for a game or interactive web experience (NOT the data-platform past-wins.json).",
+  "comparable_builds": [
+    {
+      "customer": "Fizzwick Beverages",
+      "engagement": "\"Spin-to-Win\" real-time multiplayer promo game embedded on the brand homepage",
+      "deal_size_usd": 240000,
+      "term": "1 year + 1 year renewal",
+      "discount_from_list": 0.15,
+      "payment_terms": "Annual upfront, Net 60",
+      "peak_concurrency": 32000,
+      "launch_moment": "Super Bowl ad tie-in livestream",
+      "won_on": "Hit 100% uptime through the ad window on pre-warmed capacity; sub-200ms sync",
+      "closed": "2025-10-02",
+      "notes": "Livestream spike playbook: pre-warm to 1.5x expected peak, game-day runbook, war-room."
+    },
+    {
+      "customer": "Marlowe Board & Bar",
+      "engagement": "Browser chess + backgammon suite with shareable-link multiplayer and 3-tier AI",
+      "deal_size_usd": 180000,
+      "term": "2 years",
+      "discount_from_list": 0.12,
+      "payment_terms": "Annual upfront, Net 30",
+      "peak_concurrency": 9000,
+      "launch_moment": "Rolling launch",
+      "won_on": "Server-authoritative rules engine + reconnection; beat an indie studio on reliability",
+      "closed": "2025-06-18",
+      "notes": "Reusable turn-based rules engine + minimax AI harness — directly reusable for checkers."
+    },
+    {
+      "customer": "Verdant Parks Authority",
+      "engagement": "Accessible public-facing interactive map + mini-game, WCAG 2.2 AA",
+      "deal_size_usd": 130000,
+      "term": "1 year",
+      "discount_from_list": 0.1,
+      "payment_terms": "Annual upfront, Net 30",
+      "peak_concurrency": 4000,
+      "launch_moment": "Public campaign",
+      "won_on": "Full keyboard nav + colorblind-safe palettes shipped as first-class, not afterthought",
+      "closed": "2026-01-20",
+      "notes": "Accessibility reference: keyboard-navigable interactive board, tested CVD-safe palettes."
+    }
+  ]
+}
